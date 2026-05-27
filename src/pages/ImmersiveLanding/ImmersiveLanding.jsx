@@ -716,7 +716,6 @@ export default function ImmersiveLanding() {
         </div>
 
         <div className="footer-bottom-tech data-mono">
-          <span>COORDINATES: 17.51° N, 78.38° E // HYD</span>
           <span>© {new Date().getFullYear()} SREENIKA SECURITY SOLUTIONS. PLATINUM SECURITY COMPLIANT //</span>
         </div>
       </footer>
