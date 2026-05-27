@@ -1,0 +1,706 @@
+/* ==========================================================================
+   Immersive 3D Space Landing Page Stylesheet
+   Theme: Luxury, Premium Editorial Spatial Security Experience
+   ========================================================================== */
+
+:root {
+  --neon-glow: 0 4px 20px rgba(150, 204, 255, 0.15), 0 0 40px rgba(70, 130, 180, 0.05);
+  --neon-border: rgba(150, 204, 255, 0.12);
+  --glass-dark: rgba(10, 10, 10, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+.immersive-landing {
+  background-color: var(--matte-black);
+  color: var(--on-surface);
+  position: relative;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+/* ── 3D Canvas Background (Kept completely intact!) ── */
+.canvas-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.canvas-wrapper canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    rgba(0, 0, 0, 0.08) 0px,
+    rgba(0, 0, 0, 0.08) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.radial-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 20%,
+    rgba(10, 10, 10, 0.7) 75%,
+    var(--matte-black) 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Minimalist Luxury HUD Header Active Monitor ── */
+.hud-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+}
+
+.hud-bottom-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  color: var(--outline);
+  letter-spacing: 0.25em;
+  padding-bottom: var(--space-3);
+  width: 100%;
+}
+
+/* ── General Immersive Sections ── */
+.immersive-section {
+  position: relative;
+  min-height: 90vh;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-10) 0;
+  box-sizing: border-box;
+}
+
+/* ── Hero Spatial Section ── */
+.immersive-hero {
+  min-height: 100vh;
+  padding-top: var(--space-10);
+  background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.5) 100%);
+}
+
+.immersive-hero__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .immersive-hero__container {
+    grid-template-columns: 1.3fr 0.9fr;
+  }
+}
+
+.immersive-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Elegant Luxury Logo Container (Direct) */
+.hero-corporate-logo-direct {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
+  margin-bottom: var(--space-4);
+  filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.6));
+  align-self: flex-start;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-corporate-logo-direct:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+
+.immersive-hero__title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.editorial-wipe {
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--steel-blue) 0%, transparent 100%);
+  margin-bottom: var(--space-5);
+  transform-origin: left;
+}
+
+.immersive-hero__desc {
+  font-size: var(--fs-md);
+  line-height: 1.7;
+  max-width: 580px;
+  color: var(--on-surface-variant);
+  letter-spacing: 0.01em;
+}
+
+/* Asymmetric Branch Network Panel - Rounded & Luxury */
+.asymmetric-hud-panel {
+  background: var(--glass-dark);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--glass-border);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.asymmetric-hud-panel:hover {
+  border-color: rgba(150, 204, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.panel-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.hud-data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.hud-log-ticker {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--outline);
+  line-height: 1.6;
+  background: rgba(0, 0, 0, 0.35);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* Scroll indicator overlay */
+.down-arrow-hud {
+  position: absolute;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--outline);
+  z-index: 5;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+}
+
+.rotate-90-icon {
+  transform: rotate(90deg);
+  animation: bounce-slow 2s infinite ease-in-out;
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: rotate(90deg) translateY(0); }
+  50% { transform: rotate(90deg) translateY(6px); }
+}
+
+/* ── Section Headings ── */
+.section-head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto var(--space-8);
+}
+
+.section-head h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: var(--fw-bold);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.section-head p {
+  color: var(--on-surface-variant);
+  font-size: var(--fs-md);
+  line-height: 1.6;
+}
+
+/* ── SECTION 2: Pillars Grid for 7 Services ── */
+.matrix-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .matrix-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .matrix-pillars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.matrix-pillar-card {
+  background: var(--glass-dark);
+  border: 1px solid var(--glass-border);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.matrix-pillar-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-left: 2.5px solid transparent;
+  border-bottom: 2.5px solid transparent;
+  border-radius: 16px;
+  pointer-events: none;
+  transition: border-color 0.4s ease;
+}
+
+.matrix-pillar-card:hover::after {
+  border-left-color: var(--steel-blue);
+  border-bottom-color: var(--steel-blue);
+}
+
+.pillar-hud-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: var(--outline);
+  letter-spacing: 0.15em;
+}
+
+.pillar-icon-box {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(70, 130, 180, 0.05);
+  border: 1px solid rgba(70, 130, 180, 0.15);
+  color: var(--primary);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.matrix-pillar-card:hover .pillar-icon-box {
+  background: var(--steel-blue);
+  color: #fff;
+  box-shadow: var(--neon-glow);
+}
+
+.matrix-pillar-card h3 {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.matrix-pillar-card p {
+  font-size: var(--fs-sm);
+  color: var(--on-surface-variant);
+  line-height: 1.65;
+}
+
+.pillar-hud-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  color: var(--outline);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: var(--space-3);
+  margin-top: auto;
+}
+
+/* ── SECTION 3: Luxurious About Us & 3D Procedural Viewport ── */
+.surveillance-section {
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.5) 0%, rgba(8, 8, 8, 0.8) 100%);
+}
+
+.surveillance-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .surveillance-layout {
+    grid-template-columns: 1.2fr 0.9fr;
+  }
+}
+
+.surveillance-control-deck {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.about-luxury-feat {
+  transition: all 0.3s ease;
+}
+
+.surveillance-viewport {
+  background: var(--glass-dark);
+  border: 1px solid var(--neon-border);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.viewport-hud-header, .viewport-hud-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: var(--outline);
+  letter-spacing: 0.15em;
+  padding: var(--space-2) var(--space-3);
+}
+
+.video-player-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.viewport-scanlines {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(10, 10, 10, 0) 50%, 
+    rgba(0, 0, 0, 0.2) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ── SECTION 4: Strategic Console / Stats ── */
+.console-hud-frame {
+  padding: 0 !important;
+  background: var(--glass-dark);
+  border: 1px solid var(--neon-border);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.console-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(18, 18, 18, 0.6);
+  padding: var(--space-4) var(--space-6);
+}
+
+.console-title-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.console-title-group h2 {
+  font-size: var(--fs-sm);
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  margin: 0;
+  color: #ffffff;
+}
+
+.console-body {
+  padding: var(--space-6);
+}
+
+.stats-interactive-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .stats-interactive-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat-panel {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  padding: var(--space-6);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-panel:hover, .stat-panel.highlighted {
+  border-color: var(--steel-blue);
+  background: rgba(70, 130, 180, 0.06);
+  box-shadow: var(--neon-glow);
+}
+
+.stat-num {
+  font-size: 3.2rem;
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.stat-tag {
+  font-size: 9px;
+  color: var(--outline);
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.stat-tech-ticks span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stat-tech-ticks span:nth-child(1) { top: 4px; left: 4px; }
+.stat-tech-ticks span:nth-child(2) { top: 4px; right: 4px; }
+.stat-tech-ticks span:nth-child(3) { bottom: 4px; left: 4px; }
+.stat-tech-ticks span:nth-child(4) { bottom: 4px; right: 4px; }
+
+/* ── SECTION 5: Brand Matrix (Cooperative Ecosystems Auto-scroll) ── */
+.brand-matrix-section {
+  background: linear-gradient(180deg, rgba(8, 8, 8, 0.8) 0%, rgba(10, 10, 10, 0.5) 100%);
+  overflow: hidden;
+}
+
+.brand-matrix-head {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto var(--space-8);
+}
+
+.brand-matrix-head h2 {
+  font-size: clamp(2rem, 3.5vw, 2.5rem);
+  text-transform: uppercase;
+  margin-top: var(--space-2);
+}
+
+/* Seamless infinite horizontal logo marquee */
+.brands-slider {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+  width: 100%;
+  padding: var(--space-4) 0;
+}
+
+.brands-slider__track {
+  display: flex;
+  gap: var(--space-8);
+  animation: brand-scroll 32s linear infinite;
+  width: max-content;
+  align-items: center;
+}
+
+@keyframes brand-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.brands-slider__item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 60px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.blueprint-brand-img {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.6) contrast(1.1);
+  opacity: 0.6;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brands-slider__item:hover .blueprint-brand-img {
+  filter: grayscale(0%) brightness(1) contrast(1);
+  opacity: 1;
+}
+
+/* ── Immersive Footer ── */
+.immersive-footer {
+  position: relative;
+  z-index: 2;
+  background: #060606;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: var(--space-9) 0 var(--space-6);
+}
+
+.immersive-footer__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .immersive-footer__inner {
+    grid-template-columns: 1.5fr 1fr;
+  }
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.footer-logo {
+  height: 48px;
+  object-fit: contain;
+}
+
+.footer-left p {
+  max-width: 440px;
+  line-height: 1.7;
+  font-size: 13.5px;
+  color: var(--on-surface-variant);
+}
+
+.footer-meta-tag {
+  font-size: 9px;
+  color: var(--steel-blue);
+  background: rgba(150, 204, 255, 0.03);
+  border: 1px solid rgba(150, 204, 255, 0.1);
+  padding: var(--space-2) var(--space-4);
+  letter-spacing: 0.1em;
+}
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 480px) {
+  .footer-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.footer-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-link-group .label-caps {
+  color: var(--outline);
+  margin-bottom: var(--space-2);
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+}
+
+.sec-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--on-surface-variant);
+  font-size: var(--fs-xs);
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sec-link:hover {
+  color: var(--steel-blue);
+  transform: translateX(4px);
+}
+
+.footer-bottom-tech {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  padding: var(--space-5) var(--space-6) 0;
+  margin-top: var(--space-8);
+  letter-spacing: 0.15em;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* ── SECTION 6: Central Call to Action Section ── */
+.center-cta-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(8, 8, 8, 0.95) 100%);
+  text-align: center;
+  padding: var(--space-10) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.center-cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .center-cta-wrapper {
+    flex-direction: row;
+  }
+}
+

@@ -1,0 +1,38 @@
+name: Supabase Keep-Alive Automation
+
+on:
+  schedule:
+    # Run at 00:00 every 3 days
+    - cron: '0 0 */3 * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST Endpoint to Keep Database Active
+        run: |
+          if [ -z "${{ secrets.SUPABASE_URL }}" ] || [ -z "${{ secrets.SUPABASE_ANON_KEY }}" ]; then
+            echo "ERROR: SUPABASE_URL or SUPABASE_ANON_KEY secret is not set!"
+            exit 1
+          fi
+          
+          echo "Pinging Supabase REST endpoint to prevent database auto-pause..."
+          
+          # Clean trailing slash from URL if present
+          BASE_URL=$(echo "${{ secrets.SUPABASE_URL }}" | sed 's/\/$//')
+          
+          # Send request to Supabase PostgREST api root
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
+            "$BASE_URL/rest/v1/")
+          
+          echo "Supabase Response Status Code: $RESPONSE"
+          
+          if [ "$RESPONSE" -eq 200 ] || [ "$RESPONSE" -eq 204 ] || [ "$RESPONSE" -eq 401 ] || [ "$RESPONSE" -eq 404 ]; then
+            echo "SUCCESS: Successfully connected to Supabase database. Auto-pause timer reset!"
+          else
+            echo "WARNING: Received unexpected status code $RESPONSE. Check if credentials are correct."
+            exit 1
+          fi

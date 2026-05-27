@@ -1,0 +1,319 @@
+/* ═══════════════════════════════════════════════
+   Optic Bot — Chat Interface
+   ═══════════════════════════════════════════════ */
+
+.optic-bot {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--header-height));
+  background: var(--matte-black);
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.optic-bot--client,
+.optic-bot--admin {
+  height: calc(100vh - 56px);
+}
+
+@media (min-width: 768px) {
+  .optic-bot--client,
+  .optic-bot--admin {
+    height: 100vh;
+  }
+}
+
+/* ── Header ── */
+.optic-bot__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border-primary);
+  background: var(--surface-container-lowest);
+  flex-shrink: 0;
+}
+
+.optic-bot__header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.optic-bot__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--steel-blue-raw), 0.12);
+  color: var(--steel-blue);
+  border: 1px solid rgba(var(--steel-blue-raw), 0.20);
+}
+
+.optic-bot__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  margin: 0;
+}
+
+.optic-bot__subtitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: 2px;
+}
+
+.optic-bot__vault-label {
+  display: none;
+  color: var(--outline);
+  font-size: 11px;
+}
+
+@media (min-width: 768px) {
+  .optic-bot__vault-label {
+    display: block;
+  }
+}
+
+/* ── Messages ── */
+.optic-bot__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.optic-bot__message {
+  display: flex;
+  gap: var(--space-3);
+  max-width: 85%;
+}
+
+.optic-bot__message--user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.optic-bot__message-avatar {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+}
+
+.optic-bot__message--bot .optic-bot__message-avatar {
+  color: var(--steel-blue);
+  border-color: rgba(var(--steel-blue-raw), 0.25);
+  background: rgba(var(--steel-blue-raw), 0.05);
+}
+
+.optic-bot__loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  flex: 1;
+}
+
+.optic-bot__message-content {
+  background: var(--surface-container);
+  border: 1px solid var(--color-border-primary);
+  padding: var(--space-4);
+}
+
+.optic-bot__message--user .optic-bot__message-content {
+  background: rgba(var(--steel-blue-raw), 0.08);
+  border-color: rgba(var(--steel-blue-raw), 0.15);
+}
+
+.optic-bot__message-content p {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--on-surface);
+}
+
+.optic-bot__message-image {
+  margin-bottom: var(--space-3);
+  border: 1px solid var(--color-border-primary);
+}
+
+.optic-bot__message-image img {
+  max-width: 280px;
+  max-height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Citation ── */
+.optic-bot__citation {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: rgba(var(--steel-blue-raw), 0.06);
+  border-left: 2px solid var(--steel-blue);
+  font-size: 10px;
+  color: var(--on-surface-variant);
+}
+
+.optic-bot__citation svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--steel-blue);
+}
+
+.optic-bot__citation--warning {
+  background: rgba(255, 152, 0, 0.06);
+  border-left-color: var(--color-status-warning);
+}
+
+.optic-bot__citation--warning svg {
+  color: var(--color-status-warning);
+}
+
+/* ── Typing Indicator ── */
+.optic-bot__typing {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--outline);
+  padding: var(--space-3);
+}
+
+.optic-bot__typing svg {
+  color: var(--steel-blue);
+}
+
+.optic-bot__typing-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.optic-bot__typing-dots span {
+  width: 6px;
+  height: 6px;
+  background: var(--outline);
+  animation: typing-dot 1.2s ease-in-out infinite;
+}
+
+.optic-bot__typing-dots span:nth-child(2) { animation-delay: 0.15s; }
+.optic-bot__typing-dots span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes typing-dot {
+  0%, 60%, 100% { opacity: 0.3; }
+  30% { opacity: 1; }
+}
+
+/* ── Input Area ── */
+.optic-bot__input-area {
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-border-primary);
+  background: var(--surface-container-lowest);
+  flex-shrink: 0;
+}
+
+.optic-bot__image-preview {
+  position: relative;
+  display: inline-block;
+  margin-bottom: var(--space-3);
+}
+
+.optic-bot__image-preview img {
+  max-height: 80px;
+  object-fit: cover;
+  border: 1px solid var(--outline-variant);
+}
+
+.optic-bot__image-remove {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--error-container);
+  color: var(--on-error-container);
+  border: none;
+  cursor: pointer;
+}
+
+.optic-bot__input-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.optic-bot__attach-btn {
+  background: none;
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--duration-fast) var(--easing-default);
+}
+
+.optic-bot__attach-btn:hover {
+  border-color: var(--steel-blue);
+  color: var(--steel-blue);
+}
+
+.optic-bot__input {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--on-surface);
+  background: rgba(var(--metallic-silver-raw), 0.05);
+  border: 1px solid var(--outline-variant);
+  outline: none;
+  transition: border-color var(--duration-fast) var(--easing-default);
+}
+
+.optic-bot__input:focus {
+  border-color: var(--steel-blue);
+}
+
+.optic-bot__input::placeholder {
+  color: var(--outline);
+}
+
+.optic-bot__send-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--steel-blue);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--duration-fast) var(--easing-default);
+}
+
+.optic-bot__send-btn:hover:not(:disabled) {
+  background: var(--color-accent-primary-hover);
+}
+
+.optic-bot__send-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

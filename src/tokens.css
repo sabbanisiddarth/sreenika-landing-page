@@ -1,0 +1,183 @@
+/* ═══════════════════════════════════════════════════════════
+   SSS — DESIGN TOKENS
+   State-Grade Security Aesthetic
+   Dark Mode Only · Sharp Corners · Tactile Glassmorphism
+   ═══════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'Nasalization';
+  src: url('/Nasalization Condensed Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ── Surfaces ── */
+  --surface:                    #131313;
+  --surface-dim:                #131313;
+  --surface-bright:             #393939;
+  --surface-container-lowest:   #0e0e0e;
+  --surface-container-low:      #1c1b1b;
+  --surface-container:          #20201f;
+  --surface-container-high:     #2a2a2a;
+  --surface-container-highest:  #353535;
+  --surface-variant:            #353535;
+
+  /* ── On Surface ── */
+  --on-surface:                 #e5e2e1;
+  --on-surface-variant:         #c1c7d0;
+  --inverse-surface:            #e5e2e1;
+  --inverse-on-surface:         #313030;
+
+  /* ── Primary (Steel Blue) ── */
+  --primary:                    #96ccff;
+  --primary-raw:                150, 204, 255;
+  --on-primary:                 #003353;
+  --primary-container:          #5b96c9;
+  --on-primary-container:       #002c48;
+  --inverse-primary:            #206393;
+  --steel-blue:                 #4682B4;
+  --steel-blue-raw:             70, 130, 180;
+
+  /* ── Secondary ── */
+  --secondary:                  #c6c6c6;
+  --on-secondary:               #2f3131;
+  --secondary-container:        #484949;
+  --on-secondary-container:     #b8b8b8;
+
+  /* ── Tertiary ── */
+  --tertiary:                   #c8c6c5;
+  --on-tertiary:                #313030;
+
+  /* ── Error ── */
+  --error:                      #ffb4ab;
+  --on-error:                   #690005;
+  --error-container:            #93000a;
+  --on-error-container:         #ffdad6;
+
+  /* ── Outline ── */
+  --outline:                    #8b919a;
+  --outline-variant:            #41474f;
+  --surface-tint:               #96ccff;
+
+  /* ── Brand Colors ── */
+  --matte-black:                #121212;
+  --charcoal:                   #171717;
+  --metallic-silver:            #C0C0C0;
+  --metallic-silver-raw:        192, 192, 192;
+
+  /* ── Semantic ── */
+  --color-bg-primary:           #131313;
+  --color-bg-secondary:         #171717;
+  --color-bg-tertiary:          #1c1b1b;
+  --color-text-primary:         #e5e2e1;
+  --color-text-secondary:       #c1c7d0;
+  --color-text-tertiary:        #8b919a;
+  --color-accent-primary:       #4682B4;
+  --color-accent-primary-hover: #5a9fd4;
+  --color-accent-primary-active:#3a7099;
+  --color-border-primary:       rgba(192, 192, 192, 0.10);
+  --color-border-secondary:     rgba(192, 192, 192, 0.05);
+  --color-border-focus:         #4682B4;
+  --color-status-success:       #4caf50;
+  --color-status-warning:       #ff9800;
+  --color-status-error:         #f44336;
+  --color-status-info:          #4682B4;
+  --color-surface-overlay:      rgba(23, 23, 23, 0.85);
+
+  /* ── Typography ── */
+  --font-display:               'Nasalization', 'IBM Plex Sans', sans-serif;
+  --font-body:                  'IBM Plex Sans', sans-serif;
+  --font-mono:                  'JetBrains Mono', monospace;
+
+  --fs-xs:                      0.75rem;    /* 12px */
+  --fs-sm:                      0.875rem;   /* 14px */
+  --fs-base:                    1rem;       /* 16px */
+  --fs-md:                      1.125rem;   /* 18px */
+  --fs-lg:                      1.25rem;    /* 20px */
+  --fs-xl:                      1.5rem;     /* 24px */
+  --fs-2xl:                     2rem;       /* 32px */
+  --fs-3xl:                     2.5rem;     /* 40px */
+  --fs-4xl:                     4rem;       /* 64px */
+  --fs-hero:                    5rem;       /* 80px */
+
+  --fw-light:                   300;
+  --fw-normal:                  400;
+  --fw-medium:                  500;
+  --fw-semibold:                600;
+  --fw-bold:                    700;
+
+  --lh-tight:                   1.1;
+  --lh-snug:                    1.2;
+  --lh-normal:                  1.5;
+  --lh-relaxed:                 1.6;
+
+  --ls-tight:                   -0.02em;
+  --ls-normal:                  0;
+  --ls-wide:                    0.15em;
+
+  /* ── Spacing (4px base) ── */
+  --space-0:   0;
+  --space-1:   0.25rem;   /* 4px */
+  --space-2:   0.5rem;    /* 8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.5rem;    /* 24px */
+  --space-6:   2rem;      /* 32px */
+  --space-7:   3rem;      /* 48px */
+  --space-8:   4rem;      /* 64px */
+  --space-9:   6rem;      /* 96px */
+  --space-10:  8rem;      /* 128px */
+
+  --gutter:                     1.5rem;
+  --margin-desktop:             4rem;
+  --margin-mobile:              1.25rem;
+
+  /* ── Layout ── */
+  --radius-none:                0px;
+  --radius-xs:                  1px;
+  --radius-sm:                  2px;
+  --radius-md:                  0px;   /* Sharp corners per design system */
+  --radius-lg:                  0px;
+  --sidebar-width:              260px;
+  --header-height:              72px;
+  --max-width-page:             1440px;
+  --max-width-content:          960px;
+
+  /* ── Motion ── */
+  --duration-instant:           50ms;
+  --duration-fast:              150ms;
+  --duration-normal:            250ms;
+  --duration-slow:              400ms;
+  --duration-slower:            600ms;
+  --easing-default:             cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-in:                  cubic-bezier(0.4, 0, 1, 1);
+  --easing-out:                 cubic-bezier(0, 0, 0.2, 1);
+  --easing-bounce:              cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Elevation (Glassmorphism) ── */
+  --glass-bg:                   rgba(23, 23, 23, 0.40);
+  --glass-blur:                 20px;
+  --glass-border:               rgba(192, 192, 192, 0.08);
+  --glass-bg-heavy:             rgba(23, 23, 23, 0.70);
+
+  /* ── Z-index scale ── */
+  --z-base:       1;
+  --z-dropdown:   10;
+  --z-sticky:     20;
+  --z-overlay:    30;
+  --z-modal:      40;
+  --z-toast:      50;
+  --z-floating:   60;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant:  0ms;
+    --duration-fast:     0ms;
+    --duration-normal:   0ms;
+    --duration-slow:     0ms;
+    --duration-slower:   0ms;
+  }
+}
