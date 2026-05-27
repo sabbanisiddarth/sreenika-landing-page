@@ -823,6 +823,8 @@
 
   .brands-slider {
     padding: var(--space-2) 0 !important;
+    mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent) !important;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent) !important;
   }
 
   .brands-slider__track {
@@ -837,6 +839,8 @@
   .blueprint-brand-img {
     max-width: 90% !important;
     max-height: 90% !important;
+    filter: grayscale(0%) brightness(1.1) contrast(1) !important;
+    opacity: 0.95 !important;
   }
 
   /* ── Conversions & CTA Section Mobile ── */
