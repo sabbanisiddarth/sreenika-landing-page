@@ -1,0 +1,10 @@
+﻿{
+    "settings":  {
+                     "outputDirectory":  "dist",
+                     "buildCommand":  "npm run build",
+                     "installCommand":  "npm install",
+                     "framework":  "vite"
+                 },
+    "orgId":  "team_jVwJhpIvIFT20LBYlTvCgCga",
+    "projectId":  "prj_RoF3pAvoWQ1l9SpngLiIk5fwu31O"
+}

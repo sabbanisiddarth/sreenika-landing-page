@@ -1,1 +1,0 @@
-{"model": "ollama_chat/gemma-4-manager:latest", "messages": [{"role": "user", "content": "hi"}], "stream": false}
