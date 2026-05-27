@@ -568,7 +568,7 @@ export default function ImmersiveLanding() {
             </div>
 
             <div className="console-body" style={{ padding: 'var(--space-6)' }}>
-              <div className="stats-interactive-row" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-6)' }}>
+              <div className="stats-interactive-row">
                 {stats.map((stat, idx) => (
                   <motion.div 
                     className={`stat-panel glass-card ${hoveredValue === idx ? 'highlighted' : ''}`}
