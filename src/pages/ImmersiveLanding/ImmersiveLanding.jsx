@@ -598,17 +598,11 @@ export default function ImmersiveLanding() {
       {/* ═══ SECTION 5: COOPERATIVE ECOSYSTEMS AUTO-SCROLL SLIDER ═══ */}
       <section className="immersive-section brand-matrix-section">
         <div className="container">
-          <motion.div 
-            className="brand-matrix-head"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="brand-matrix-head">
             <span className="label-caps text-gradient">COOPERATIVE ECOSYSTEMS</span>
             <h2>State-Grade Hardware Partners</h2>
             <p>Our security structures are deployed in integration with world-class hardware technology leaders.</p>
-          </motion.div>
+          </div>
 
           {/* Premium Free-Flowing Auto Marquee Slider - No boxes, completely free elements */}
           <div className="brands-slider" style={{ marginTop: 'var(--space-6)' }}>
