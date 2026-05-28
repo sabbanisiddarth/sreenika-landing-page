@@ -809,22 +809,86 @@
   }
 
   /* ── Cooperative Ecosystems mobile fixes ── */
+  .brand-matrix-section {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    clear: both !important;
+    position: relative !important;
+  }
+
+  .brand-matrix-section .container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: var(--margin-mobile) !important;
+    padding-right: var(--margin-mobile) !important;
+    box-sizing: border-box !important;
+    clear: both !important;
+    float: none !important;
+  }
+
   .brand-matrix-head {
-    margin-bottom: var(--space-4) !important;
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto var(--space-5) !important;
+    padding: 0 var(--space-4) !important;
+    box-sizing: border-box !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    clear: both !important;
+    float: none !important;
+  }
+
+  .brand-matrix-head span {
+    display: block !important;
+    text-align: center !important;
+    font-size: 10px !important;
+    letter-spacing: 0.15em !important;
+    margin-bottom: var(--space-2) !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .brand-matrix-head h2 {
-    font-size: 1.6rem !important;
+    display: block !important;
+    text-align: center !important;
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
+    margin-top: 0 !important;
+    margin-bottom: var(--space-3) !important;
+    width: 100% !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .brand-matrix-head p {
+    display: block !important;
+    text-align: center !important;
     font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: var(--on-surface-variant) !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .brands-slider {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
     padding: var(--space-2) 0 !important;
-    mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent) !important;
-    -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent) !important;
+    margin-top: var(--space-4) !important;
+    clear: both !important;
+    float: none !important;
   }
 
   .brands-slider__track {
@@ -839,8 +903,6 @@
   .blueprint-brand-img {
     max-width: 90% !important;
     max-height: 90% !important;
-    filter: grayscale(0%) brightness(1.1) contrast(1) !important;
-    opacity: 0.95 !important;
   }
 
   /* ── Conversions & CTA Section Mobile ── */
